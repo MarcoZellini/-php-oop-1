@@ -31,20 +31,20 @@ include __DIR__ . '/db.php';
     <main id="site_main" class="bg-secondary p-5">
         <div class="container">
             <div class="row row-cols-4 g-5">
-                <?php foreach ($movies as $i => $movie) : ?>
+                <?php foreach ($movies as $movie) : ?>
                     <div class="col">
                         <div class="card border-0 h-100">
-                            <img class="card-img-top" src="<?= $movies[$i]->getPoster() ?>"></img>
+                            <img class="card-img-top" src="<?= $movie->getPoster() ?>"></img>
                             <div class="card-body">
-                                <h4>Title: <?= $movies[$i]->getTitle() ?></h5>
+                                <h4>Title: <?= $movie->getTitle() ?></h5>
                                     <h5>Genres:</h5>
                                     <ul>
-                                        <?php foreach ($movies[$i]->getGenres() as $genre) : ?>
+                                        <?php foreach ($movie->getGenres() as $genre) : ?>
                                             <li><?= $genre; ?></li>
                                         <?php endforeach; ?>
                                     </ul>
-                                    <h5>Voto: <?= $movies[$i]->getVote() ?></h5>
-                                    <h5>Language: <?= $movies[$i]->getLanguage() ?>
+                                    <h5>Voto: <?= $movie->getVote() ?></h5>
+                                    <h5>Language: <?= $movie->getLanguage() ?>
                                 </h4>
                             </div>
                         </div>
