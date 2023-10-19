@@ -118,11 +118,9 @@ array_push(
                                 <h4>Title: <?= $movies[$i]->getTitle() ?></h5>
                                     <h5>Genres:</h5>
                                     <ul>
-                                        <?php
-                                        foreach ($movies[$i]->getGenres() as $genre) {
-                                            echo '<li>' . $genre . '</li>';
-                                        }
-                                        ?>
+                                        <?php foreach ($movies[$i]->getGenres() as $genre) : ?>
+                                            <li><?= $genre; ?></li>
+                                        <?php endforeach; ?>
                                     </ul>
                                     <h5>Voto: <?= $movies[$i]->getVote() ?></h5>
                                     <h5>Language<?= $movies[$i]->getLanguage() ?>
