@@ -8,87 +8,9 @@
         Bonus 2: Creare un layout completo per stampare a schermo una lista di movies.
 */
 
-class Movie
-{
-    public $poster;
-    public $title;
-    public $vote;
-    public $genres;
-    public $language;
+include __DIR__ . '/models/Movie.php';
+include __DIR__ . '/db.php';
 
-    function __construct($_posterId, $_title, $_vote, $_genres, $_language)
-    {
-        $this->setPoster($_posterId);
-        $this->setTitle($_title);
-        $this->setVote($_vote);
-        $this->setGenres($_genres);
-        $this->setLanguage($_language);
-    }
-
-    public function getPoster()
-    {
-        return $this->poster;
-    }
-
-    public function setPoster($_posterId)
-    {
-        $this->poster = 'https://picsum.photos/200/200?random=' . $_posterId;
-    }
-
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    public function setTitle($_title)
-    {
-        $this->title = $_title;
-    }
-
-    public function getVote()
-    {
-        return $this->vote;
-    }
-
-    public function setVote($_vote)
-    {
-        $this->vote = $_vote;
-    }
-
-    public function getGenres()
-    {
-        return $this->genres;
-    }
-
-    public function setGenres($_genres)
-    {
-        $this->genres = $_genres;
-    }
-
-    public function getLanguage()
-    {
-        return $this->language;
-    }
-
-    public function setLanguage($_language)
-    {
-        $this->language = $_language;
-    }
-}
-
-$movies = [];
-
-array_push(
-    $movies,
-    new Movie(1, "Matrix", 5, ['Action', "Adventure"], "English"),
-    new Movie(2, "Spider-Man", 4.5, ['Action', "Adventure"], "Italian"),
-    new Movie(3, "Matrix 2", 2, ['Drama', "Thriller"], "French"),
-    new Movie(4, "Spider-Man 2", 4.5, ['Horror', "Thriller"], "Spanish"),
-    new Movie(5, "Matrix 3", 5, ['Action', "Adventure"], "English"),
-    new Movie(6, "Spider-Man 3", 5, ['Drama', "Horror"], "Italian"),
-    new Movie(7, "Matrix 4", 3, ['Fantasy', "Romance"], "French"),
-    new Movie(8, "Spider-Man 4", 2.5, ['Action', "Adventure"], "Spanish")
-);
 ?>
 
 <!DOCTYPE html>
@@ -106,7 +28,6 @@ array_push(
         <h1 class="text-center">MovieList</h1>
     </header>
     <!-- /#iste_header -->
-
     <main id="site_main" class="bg-secondary p-5">
         <div class="container">
             <div class="row row-cols-4 g-5">
@@ -123,7 +44,7 @@ array_push(
                                         <?php endforeach; ?>
                                     </ul>
                                     <h5>Voto: <?= $movies[$i]->getVote() ?></h5>
-                                    <h5>Language<?= $movies[$i]->getLanguage() ?>
+                                    <h5>Language: <?= $movies[$i]->getLanguage() ?>
                                 </h4>
                             </div>
                         </div>
@@ -137,13 +58,11 @@ array_push(
         <!-- /.container -->
     </main>
     <!-- /#site_main -->
-
     <footer id="site_footer" class="bg-dark m-0">
         <h6 class="text-center text-white p-2 m-0">Zellini Marco 2023 &copy;</h6>
         <!-- /.text-center text-white -->
     </footer>
     <!-- /#site_footer -->
-
 </body>
 
 </html>
